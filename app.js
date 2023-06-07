@@ -6,6 +6,12 @@ const logger = require('morgan');
 const cors = require("cors")
 require ("dotenv").config()
 
+const mongoose = require ("mongoose")
+
+mongoose.connect(process.env.MONGODB_URI, {dbName: "login-contxt"}) 
+  .then(()=> console.log("Connected to MongoDB"))
+  .catch((error)=>console.log(error))
+
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users/users');
 
